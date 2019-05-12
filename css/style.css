@@ -63,3 +63,7 @@
 #squares .chosen {
   background-color: rgb(85, 138, 207) !important;
 }
+
+#squares .possible {
+  background-color: rgb(33, 212, 57) !important;
+}

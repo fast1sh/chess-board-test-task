@@ -45,18 +45,26 @@ const getPossibleKnightMoves = (square) => {
   //find needed square names
   const resultSquares = getKeysByValues(squares, possibleMoves);
 
+  //add color class to a chosen square
+  const currentSquareDiv = document.querySelector(`div[data-square='${square}']`);
+  currentSquareDiv.classList.add('chosen');
+
   //add color class to needed squares
   resultSquares.forEach((square) => {
     const squareDiv = document.querySelector(`div[data-square='${square}']`);
-    squareDiv.classList.add('chosen');
+    squareDiv.classList.add('possible');
   });
 };
 
 const clearChosenSquares = () => {
-  const chosenSquares = document.querySelectorAll('.chosen');
-  
-  for (square of chosenSquares) {
-    square.classList.remove('chosen');
+  const chosenSquare = document.querySelector('.chosen');
+  const possibleSquares = document.querySelectorAll('.possible');
+
+  if (chosenSquare) {
+    chosenSquare.classList.remove('chosen');
+  }
+  for (square of possibleSquares) {
+    square.classList.remove('possible');
   }
 };
 
